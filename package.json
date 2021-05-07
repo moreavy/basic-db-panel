@@ -1,0 +1,18 @@
+{
+  "name": "basic-db-panel",
+  "version": "1.0.0",
+  "description": "A GUI For Basic-DB (https://github.com/moreavy/basic-db)",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "database"
+  ],
+  "author": "Avyukt More <moreavyukt1@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "basic-db": "^2.2.4",
+    "electron": "^12.0.6"
+  }
+}

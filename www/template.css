@@ -1,0 +1,21 @@
+* {
+    color: #f3f3f3;
+    background-color: #121212;
+    font-family: Ubuntu, Roboto, Tahoma, sans-serif;
+}
+
+header {
+    text-align: center;
+    text-shadow: 5px;
+    border: 2px solid #ffffff;
+    white-space: normal;
+}
+
+table {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+td {
+    border: 1px solid #ffffff;
+}
