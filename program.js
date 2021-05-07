@@ -2,6 +2,14 @@ const { Server } = require("basic-db");
 const { EOL } = require("os");
 let database;
 
+var basicMain = `<div class="text-center">
+    <br>
+    <h4>Create Database Or Fetch An Existing Database</h3>
+    <input class="w3-input w3-border w3-round" type="text" id="dbn"/>
+    <br>
+    <button class="btn w3-green w3-ripple" onclick="start(v$('dbn'))" title="Start Basic-DB Workspace">Start Workspace</button>
+</div><br>`
+
 function v$(elementId) {
     return document.getElementById(elementId).value;
 }
@@ -57,6 +65,10 @@ function start(dbname) {
         </div>
         <button class="btn w3-green w3-round w3-ripple" title="Export Data From Database Into A File" onclick="sExport(v$('exportdatatype'))">Export</button>
     </div>`;
+    document.getElementById("footer").innerHTML = `
+    <br>
+    <label>Return Home To Switch Database: </lable><button class="btn w3-green w3-ripple w3-round" onclick="reload()">Return Home</button>
+    <br><br>`
     document.title = `Basic-DB Workspace | @${database.name}`;
 }
 
@@ -91,7 +103,7 @@ function sExport(type) {
                 value: v,
             });
         }
-        
+
         for (var i = 0; i < mixer.length; i++) {
             if (i === 0) {
                 tree = `${mixer[i].key},${mixer[i].value}`;
@@ -103,3 +115,9 @@ function sExport(type) {
         download(`${tree}${EOL}`, `${database.name}.csv`, "text/csv");
     }
 }
+
+function reload() {
+    document.getElementById("content").innerHTML = basicMain;
+    document.getElementById("footer").innerHTML = "";
+}
+window.addEventListener("load", reload);
