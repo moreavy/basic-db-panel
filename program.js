@@ -61,7 +61,6 @@ function start(dbname) {
             <select id="exportdatatype">
                 <option value="JSON">JSON</option>
                 <option value="CSV">CSV</option>
-                <option value="CONF">CONF</option>
             </select>
         </div>
         <button class="btn w3-green w3-round w3-ripple" title="Export Data From Database Into A File" onclick="sExport(v$('exportdatatype'))">Export</button>
@@ -114,22 +113,6 @@ function sExport(type) {
         }
 
         download(`${tree}${EOL}`, `${database.name}.csv`, "text/csv");
-    } else if (type === "CONF") {
-        var keys = Object.keys(database.exportAll());
-        var vals = Object.values(database.exportAll());
-        var tree = "";
-
-        for (var i = 0; i < keys.length; i++) {
-            var key = keys[i];
-            var value = vals[i]
-            if (i === 0) {
-                tree = `${key} = ${value}`;
-            } else {
-                tree = `${tree}\n${key} = ${value}`;
-            }
-        }
-
-        download(`${tree}${EOL}`, `${database.name}.conf`, "properties/conf");
     }
 }
 
